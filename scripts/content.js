@@ -26,6 +26,8 @@ setInterval(() => {
       let toolbar = document.createElement("div");
       toolbar.style = toolbarStyle;
       block.setAttribute("data-block-id", blockId);
+      block.contentEditable = "true";
+
       let button = document.createElement("button");
       button.innerText = "Run Code";
       button.style = buttonStyle;
@@ -49,7 +51,9 @@ setInterval(() => {
           //eval(block.innerText);
 
           console.log = oldLog; // restore original console.log function
-          logOutput += "\n" + result + "\n";
+          if (logOutput !== result) {
+            logOutput += "\n" + result + "\n";
+          }
 
           // Display the result below the block
           let outputDivId = "output-for-" + blockId;
