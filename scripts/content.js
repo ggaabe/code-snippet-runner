@@ -45,8 +45,6 @@ setInterval(() => {
             } catch (error) {
               console.error(error);
             }
-          } else {
-            console.log(result);
           }
           //eval(block.innerText);
 
