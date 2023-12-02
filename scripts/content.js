@@ -66,7 +66,7 @@ setInterval(() => {
             outputDiv.className = "output-div"; // Use a class for styling
 
             let summary = document.createElement("summary");
-            summary.innerText = "Output";
+            summary.innerText = "Code Execution Result:";
             outputDiv.appendChild(summary);
 
             let outputText = document.createElement("pre"); // Use pre for preserving format
