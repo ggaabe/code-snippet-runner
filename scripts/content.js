@@ -60,14 +60,22 @@ setInterval(() => {
           let outputDiv = document.getElementById(outputDivId);
 
           if (!outputDiv) {
-            outputDiv = document.createElement("div");
+            outputDiv = document.createElement("details"); // Change this to details
+            outputDiv.open = true; // Add this line to make the details open by default
             outputDiv.id = outputDivId; // Set the ID for the output div
             outputDiv.className = "output-div"; // Use a class for styling
-            outputDiv.innerText = logOutput;
+
+            let summary = document.createElement("summary");
+            summary.innerText = "Output";
+            outputDiv.appendChild(summary);
+
+            let outputText = document.createElement("pre"); // Use pre for preserving format
+            outputText.innerText = logOutput;
+            outputDiv.appendChild(outputText);
 
             block.parentElement.appendChild(outputDiv);
           } else {
-            outputDiv.innerText = logOutput;
+            outputDiv.querySelector("pre").innerText = logOutput; // Update the pre element inside details
           }
         } catch (e) {
           console.error(e);
